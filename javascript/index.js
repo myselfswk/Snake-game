@@ -13,7 +13,7 @@ const moveSound = new Audio('./Sounds/move.mp3');
 const musicSound = new Audio('./Sounds/music.mp3');
 
 //speed variable is used to speed up the snake
-let speed = 5;
+let speed = 10;
 let lastPaintTime = 0;
 let score = 0;
 
@@ -48,7 +48,7 @@ function isCollide(snake) {
     }
 
     //if you bump into the wall
-    if (snake[0].x >= 18 || snake[0].x <= 0 && snake[0].y >= 18 || snake[0].y <= 0) {
+    if (snake[0].x >= 18 || snake[0].x <= 0 || snake[0].y >= 18 || snake[0].y <= 0) {
         return true;
     }
 }
@@ -71,6 +71,13 @@ function gameEngine() {
     //if you eaten the food, increament the score and regenerate the food
     if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
         foodSound.play();
+        score += 1;
+        if (score > highscoreval) {
+            highscoreval = score;
+            localStorage.setItem("highscore", JSON.stringify(highscoreval));
+            highscoreBox.innerHTML = "High Score: ".concat(highscoreval);
+        }
+        scoreBox.innerHTML = "Score: ".concat(score);
         snakeArr.unshift({
             x: snakeArr[0].x + inputDir.x,
             y: snakeArr[0].y + inputDir.y
@@ -123,6 +130,17 @@ function gameEngine() {
 }
 
 // Game main Logic
+musicSound.play();
+
+let highscore = localStorage.getItem("highscore");
+if (highscore === null) {
+    highscoreval = 0;
+    localStorage.setItem("highscore", JSON.stringify(highscoreval));
+} else {
+    highscoreval = JSON.parse(highscore);
+    highscoreBox.innerHTML = "High Score: ".concat(highscore);
+}
+
 window.requestAnimationFrame(main);
 
 window.addEventListener('keydown', e => {
