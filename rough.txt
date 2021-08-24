@@ -1,0 +1,40 @@
+@media screen and (max-width: 1320px) {
+    #board {
+        position: absolute;
+        top: 30px;
+        left: 180px;
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    #board {
+        position: absolute;
+        top: 30px;
+        left: 150px;
+    }
+}
+
+@media screen and (max-width: 1225px) {
+    #board {
+        position: absolute;
+        top: 30px;
+        left: 120px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    #board {
+        position: absolute;
+        top: 30px;
+        left: 80px;
+    }
+}
+
+@media screen and (max-width: 1357px) {
+    #board {
+        position: absolute;
+        top: 30px;
+        left: 220px;
+    }
+}
+

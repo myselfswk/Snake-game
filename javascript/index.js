@@ -57,14 +57,14 @@ function gameEngine() {
     // updating the snake array
     if (isCollide(snakeArr)) {
         gameOverSound.play();
-        musicSound.pause();
+        // musicSound.pause();
         inputDir = { x: 0, y: 0 };
         alert("Game Over, Press any key to play again");
         snakeArr = [
             { x: 13, y: 15 }
         ]
 
-        musicSound.play();
+        // musicSound.play();
         score = 0;
     }
 
@@ -130,7 +130,7 @@ function gameEngine() {
 }
 
 // Game main Logic
-musicSound.play();
+// musicSound.play();
 
 let highscore = localStorage.getItem("highscore");
 if (highscore === null) {
@@ -149,25 +149,25 @@ window.addEventListener('keydown', e => {
 
     switch (e.key) {
         case "ArrowUp":
-            console.log("ArrowUp");
+            // console.log("ArrowUp");
             inputDir.x = 0;
             inputDir.y = -1;
             break;
 
         case "ArrowDown":
-            console.log("ArrowDown");
+            // console.log("ArrowDown");
             inputDir.x = 0;
             inputDir.y = 1;
             break;
 
         case "ArrowLeft":
-            console.log("ArrowLeft");
+            // console.log("ArrowLeft");
             inputDir.x = -1;
             inputDir.y = 0;
             break;
 
         case "ArrowRight":
-            console.log("ArrowRight");
+            // console.log("ArrowRight");
             inputDir.x = 1;
             inputDir.y = 0;
             break;
